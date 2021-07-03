@@ -1,0 +1,15 @@
+/node_modules/
+/public/build/
+
+.DS_Store
+
+# VS CODE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
