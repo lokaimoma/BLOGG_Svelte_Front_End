@@ -4,7 +4,33 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(55, 28, 66);
+}
+
 .container {
   max-width: 80%;
   margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.151);
+  border-radius: 10px;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+  width: 100%;
+  padding: 0.5rem 0.3rem;
+  margin: 0.4rem 0;
+  border-radius: 5px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
