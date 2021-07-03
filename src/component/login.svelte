@@ -1,4 +1,5 @@
 <script>
+  import Button from "../shared/button.svelte";
   let email = "";
   let password = "";
   const errors = { email: "" };
@@ -23,6 +24,7 @@
 <div>
   <header>
     <img src="static/img/blog_logo.png" alt="BLOGG Logo" />
+    <Button title="Sign Up" secondary={true} />
   </header>
   <form on:submit|preventDefault={submitHandler}>
     <label>
@@ -38,7 +40,7 @@
       <input type="password" bind:value={password} minlength="8" />
     </label>
 
-    <input type="submit" value="Submit" />
+    <Button title="Log In" clickHandler={submitHandler} flat={true} />
   </form>
 </div>
 
