@@ -8,8 +8,41 @@
   let user_name = "";
 
   const errors = { email: "", password: "", conf_password: "", user_name: "" };
+  let no_errors = false;
 
-  const submitHandler = (_) => {};
+  const submitHandler = (_) => {
+    no_errors = true;
+
+    if (user_name.length < 5) {
+      no_errors = false;
+      errors.user_name = "Username must be at least 5 characters long";
+    } else {
+      errors.user_name = "";
+    }
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (!emailPattern.test(email)) {
+      errors.email = "Type a correct email";
+      no_errors = false;
+    } else {
+      errors.email = "";
+    }
+
+    if (password.length < 8) {
+      no_errors = false;
+      errors.password = "Password has to be at least 8 characters long";
+    } else {
+      errors.password = "";
+    }
+
+    if (conf_password !== password) {
+      no_errors = false;
+      errors.conf_password = "Password don't match";
+    } else {
+      errors.conf_password = "";
+    }
+  };
 </script>
 
 <div class="sign-up-section">
