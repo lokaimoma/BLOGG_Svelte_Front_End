@@ -26,6 +26,7 @@
     font-weight: 700;
     border-radius: 7px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.178);
+    cursor: pointer;
   }
 
   .flat {
