@@ -1,9 +1,10 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 .container {
-  width: minmax(600px, 80%);
+  max-width: 80%;
+  margin: auto;
 }
