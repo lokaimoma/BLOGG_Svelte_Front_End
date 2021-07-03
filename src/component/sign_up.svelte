@@ -91,5 +91,6 @@
   .error {
     color: red;
     font-weight: bold;
+    margin-bottom: 0.4rem;
   }
 </style>
