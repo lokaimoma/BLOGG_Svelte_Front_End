@@ -1,6 +1,8 @@
 <script>
   import { route } from "../store/routing_store";
   import Button from "../shared/button.svelte";
+  import { login_user } from "../services/api_service";
+
   let email = "";
   let password = "";
   const errors = { email: "", password: "" };
@@ -25,7 +27,21 @@
       errors.password = "";
     }
 
-    no_errors && alert("Login OK");
+    if (no_errors) {
+      login_user(email, password).then((data) => {
+        if (data.ERROR) {
+          errors.email = "Email may not be registered";
+          errors.password = "Password may be wrong";
+        } else {
+          errors.email = "";
+          errors.password = "";
+          document.cookie = `email=${data.email}`;
+          document.cookie = `id=${data.id}`;
+          document.cookie = `username=${data.username}`;
+          // TODO Redirect To BLOG LIST
+        }
+      });
+    }
   };
 </script>
 
@@ -91,5 +107,6 @@
   .error {
     color: red;
     font-weight: bold;
+    margin-bottom: 0.4rem;
   }
 </style>
