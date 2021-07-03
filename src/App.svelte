@@ -1,9 +1,10 @@
 <script>
   import { route } from "./store/routing_store";
+  import Login from "./component/login.svelte";
 </script>
 
 <main>
-  <p>{$route}</p>
+  <Login />
 </main>
 
 <style>
