@@ -1,5 +1,5 @@
 <script>
-  import { route } from "./store/routing_store";
+  import { route } from "../store/routing_store";
   import Button from "../shared/button.svelte";
   let email = "";
   let password = "";
@@ -68,7 +68,6 @@
 
 <style>
   .login-section {
-    background-color: rgb(55, 28, 66);
     color: #fff;
     height: 100vh;
   }
@@ -87,23 +86,6 @@
     place-items: center;
     padding: 30px;
     height: 70%;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.151);
-    border-radius: 10px;
-  }
-
-  form input[type="email"],
-  form input[type="password"] {
-    width: 100%;
-    padding: 0.5rem 0.3rem;
-    margin: 0.4rem 0;
-    border-radius: 5px;
-    border: none;
   }
 
   .error {
