@@ -21,6 +21,9 @@
 </script>
 
 <div>
+  <header>
+    <img src="static/img/blog_logo.png" alt="BLOGG Logo" />
+  </header>
   <form on:submit|preventDefault={submitHandler}>
     <label>
       Email
