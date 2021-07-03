@@ -1,5 +1,6 @@
 <script>
   import { route } from "../store/routing_store";
+  import { register_user } from "../services/api_service";
   import Button from "../shared/button.svelte";
 
   let email = "";
@@ -41,6 +42,20 @@
       errors.conf_password = "Password don't match";
     } else {
       errors.conf_password = "";
+    }
+
+    if (no_errors) {
+      register_user(user_name, email, password).then((data) => {
+        if (data.ERROR) {
+          errors.user_name = "This name may exist already";
+          errors.email = "This email may exit already";
+        } else {
+          document.cookie = `username=${data.username}`;
+          document.cookie = `email=${data.email}`;
+          document.cookie = "id=";
+          route.set("login");
+        }
+      });
     }
   };
 </script>
