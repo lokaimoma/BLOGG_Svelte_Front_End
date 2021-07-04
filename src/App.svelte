@@ -19,6 +19,8 @@
     <SignUp />
   {:else if $route === "blog_list"}
     <p>Blog List</p>
+  {:else}
+    <p>Loading</p>
   {/if}
 </main>
 
