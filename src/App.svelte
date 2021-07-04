@@ -5,7 +5,7 @@
   import SignUp from "./component/sign_up.svelte";
 
   const cookies = getCookies();
-  if (cookies.id === "") {
+  if (cookies.id === "" || cookies.id == undefined) {
     route.set("login");
   } else {
     route.set("blog_list");

@@ -1,7 +1,8 @@
 <script>
   import { route } from "../store/routing_store";
-  import Button from "../shared/button.svelte";
   import { login_user } from "../services/api_service";
+  import Button from "../shared/button.svelte";
+  import Header from "../shared/header.svelte";
 
   let email = "";
   let password = "";
@@ -46,14 +47,23 @@
 </script>
 
 <div class="login-section">
-  <header class="main-header">
+  <!-- <header class="main-header">
     <img src="static/img/blog_logo.png" alt="BLOGG Logo" />
     <Button
       title="Sign Up"
       secondary={true}
       clickHandler={() => route.set("sign_up")}
     />
-  </header>
+  </header> -->
+  <Header>
+    <div slot="info_and_actions">
+      <Button
+        title="Sign Up"
+        secondary={true}
+        clickHandler={() => route.set("sign_up")}
+      />
+    </div>
+  </Header>
   <div class="form-container container">
     <form on:submit|preventDefault={submitHandler}>
       <label>
@@ -86,15 +96,6 @@
   .login-section {
     color: #fff;
     height: 100vh;
-  }
-
-  .main-header {
-    background-color: rgb(37, 20, 44);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.2rem 0.3rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.288);
   }
 
   .form-container {
