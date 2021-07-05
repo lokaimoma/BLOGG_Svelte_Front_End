@@ -5,11 +5,11 @@
   import Button from "../shared/button.svelte";
 
   export let id = null;
-  export let title = "";
-  export let body = "";
+  export let title = "Blog Title goes here";
+  export let body = "Blog content goes here";
   export let last_updated = new Date().toLocaleString();
   export let created_date = new Date().toLocaleString();
-  export let user_id;
+  export let user_id = getCookie(id);
   const isOwner = parseInt(getCookie("id")) === parseInt(user_id);
   let contentChanged = false;
 
@@ -21,16 +21,17 @@
 
 <section id="blog-details-section">
   <Header setDefault={false}>
-    <div slot="_default">
-      <p>🔰</p>
+    <div slot="_default" class="_default">
+      <img class="back-img" src="static/img/chevron.png" alt="Go back" />
       {#if isOwner}
         <h2
+          class="title"
           contenteditable="true"
           bind:innerHTML={title}
           on:input|once={changeHandler}
         />
       {:else}
-        <h2>{title}</h2>
+        <h2 class="title">{title}</h2>
       {/if}
     </div>
 
@@ -59,3 +60,20 @@
     {/if}
   </div>
 </section>
+
+<style>
+  .back-img {
+    cursor: pointer;
+    width: 30px;
+  }
+
+  ._default {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    padding: 10px;
+  }
+</style>

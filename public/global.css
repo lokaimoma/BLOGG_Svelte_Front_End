@@ -35,3 +35,13 @@ form input[type="text"] {
 input:focus {
   outline: none;
 }
+
+.info_and_actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info {
+  margin-right: 0.5rem;
+}
