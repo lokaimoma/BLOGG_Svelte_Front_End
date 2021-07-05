@@ -1,6 +1,6 @@
 <script>
+  import { createEventDispatcher, onMount } from "svelte";
   import { getCookie } from "../services/cookies";
-  import { onMount } from "svelte";
   import { get_blogs } from "../services/api_service";
   import { getDateTimeString } from "../services/date";
   import Header from "../shared/header.svelte";
@@ -8,12 +8,23 @@
   import BlogItem from "./blog_item.svelte";
 
   let blog_list = [];
+  const dispatch = createEventDispatcher();
 
   onMount((_) => {
     get_blogs().then((data) => {
       blog_list = data;
     });
   });
+  const handleClick = (id) => {
+    let blog = null;
+    blog_list.every((_blog) => {
+      if (_blog.id === id) {
+        blog = _blog;
+      }
+      return _blog.id !== id;
+    });
+    dispatch("blogClicked", { blog });
+  };
 </script>
 
 <section id="blog-list-section">
@@ -27,11 +38,12 @@
   </Header>
 
   <div class="blog-list" class:no-blogs={blog_list.length === 0}>
-    {#each blog_list as blog}
+    {#each blog_list as blog (blog.id)}
       <BlogItem
         title={blog.title}
         body={blog.body}
         created_date={getDateTimeString(blog.created_date)}
+        on:click={() => handleClick(blog.id)}
       />
     {:else}
       <p>There are no blogs to display</p>
