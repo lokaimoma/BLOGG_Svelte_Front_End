@@ -3,6 +3,7 @@
   import { getCookies } from "./services/cookies";
   import Login from "./component/login.svelte";
   import SignUp from "./component/sign_up.svelte";
+  import BlogList from "./component/blog_list.svelte";
 
   const cookies = getCookies();
   if (cookies.id === "" || cookies.id == undefined) {
@@ -18,7 +19,7 @@
   {:else if $route === "sign_up"}
     <SignUp />
   {:else if $route === "blog_list"}
-    <p>Blog List</p>
+    <BlogList />
   {:else}
     <p>Loading</p>
   {/if}
