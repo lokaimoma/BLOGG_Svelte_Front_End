@@ -2,6 +2,7 @@
   import { getCookie } from "../services/cookies";
   import { onMount } from "svelte";
   import { get_blogs } from "../services/api_service";
+  import { getDateTimeString } from "../services/date";
   import Header from "../shared/header.svelte";
   import Button from "../shared/button.svelte";
   import BlogItem from "./blog_item.svelte";
@@ -30,7 +31,7 @@
       <BlogItem
         title={blog.title}
         body={blog.body}
-        created_date={blog.created_date}
+        created_date={getDateTimeString(blog.created_date)}
       />
     {:else}
       <p>There are no blogs to display</p>
