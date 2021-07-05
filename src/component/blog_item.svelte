@@ -8,7 +8,7 @@
 <div class="blog-item" on:click>
   <h3 class="title">{title}</h3>
   <p class="body">{body}</p>
-  <p class="date">Created date: {created_date}</p>
+  <p class="date">Created : {created_date}</p>
 </div>
 
 <style>
