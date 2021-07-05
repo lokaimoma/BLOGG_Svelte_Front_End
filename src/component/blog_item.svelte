@@ -5,7 +5,7 @@
   export let created_date = "4/12/2021";
 </script>
 
-<div class="blog-item">
+<div class="blog-item" on:click>
   <h3 class="title">{title}</h3>
   <p class="body">{body}</p>
   <p class="date">Created date: {created_date}</p>
@@ -16,10 +16,16 @@
     hyphens: auto;
     -ms-hyphens: manual;
     width: 300px;
-    background-color: rgb(58, 10, 65);
+    background-color: rgb(50, 8, 56);
     border-radius: 5px;
     padding: 15px;
     border-left: 2px solid orangered;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .blog-item:hover {
+    transform: translateY(-10px);
   }
 
   .title,
@@ -45,7 +51,7 @@
     background: linear-gradient(
       to right,
       rgba(255, 255, 255, 0),
-      rgb(58, 10, 65) 90%
+      rgb(50, 8, 56) 90%
     );
   }
 
