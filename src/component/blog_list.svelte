@@ -56,16 +56,6 @@
 </section>
 
 <style>
-  .info_and_actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .info {
-    margin-right: 0.5rem;
-  }
-
   .blog-list {
     padding: 20px;
     display: grid;
