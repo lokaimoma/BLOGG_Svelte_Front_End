@@ -47,14 +47,6 @@
 </script>
 
 <div class="login-section">
-  <!-- <header class="main-header">
-    <img src="static/img/blog_logo.png" alt="BLOGG Logo" />
-    <Button
-      title="Sign Up"
-      secondary={true}
-      clickHandler={() => route.set("sign_up")}
-    />
-  </header> -->
   <Header>
     <div slot="info_and_actions">
       <Button

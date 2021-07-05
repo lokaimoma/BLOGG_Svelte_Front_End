@@ -2,6 +2,7 @@
   import { route } from "../store/routing_store";
   import { register_user } from "../services/api_service";
   import Button from "../shared/button.svelte";
+  import Header from "../shared/header.svelte";
 
   let email = "";
   let password = "";
@@ -61,14 +62,15 @@
 </script>
 
 <div class="sign-up-section">
-  <header class="main-header">
-    <img src="static/img/blog_logo.png" alt="BLOGG Logo" />
-    <Button
-      title="Log In"
-      primary={true}
-      clickHandler={() => route.set("login")}
-    />
-  </header>
+  <Header>
+    <div slot="info_and_actions">
+      <Button
+        title="Sign Up"
+        secondary={true}
+        clickHandler={() => route.set("sign_up")}
+      />
+    </div>
+  </Header>
 
   <div class="form-container container">
     <form on:submit|preventDefault={submitHandler}>

@@ -8,7 +8,7 @@
   {:else}
     <slot name="_default" />
   {/if}
-  <slot name="info_and_actions" class="info_and_actions" />
+  <slot name="info_and_actions"/>
 </header>
 
 <style>
@@ -19,12 +19,5 @@
     align-items: center;
     padding: 0.2rem 0.3rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.288);
-  }
-
-  .info_and_actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-basis: 40%;
   }
 </style>
