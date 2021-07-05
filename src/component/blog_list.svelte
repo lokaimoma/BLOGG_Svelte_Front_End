@@ -2,6 +2,7 @@
   import { getCookie } from "../services/cookies";
   import Header from "../shared/header.svelte";
   import Button from "../shared/button.svelte";
+  import BlogItem from "./blog_item.svelte";
 </script>
 
 <section id="blog-list-section">
@@ -14,7 +15,7 @@
     </div>
   </Header>
 
-  
+  <BlogItem />
 </section>
 
 <style>
