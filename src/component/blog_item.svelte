@@ -56,6 +56,7 @@
   }
 
   .date {
+    color: rgba(255, 255, 255, 0.568);
     font-size: 0.8rem;
     text-align: right;
   }
