@@ -80,5 +80,11 @@
     bottom: 0px;
     right: 0px;
     margin: 30px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.493);
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .add-blog:hover {
+    opacity: 0.5;
   }
 </style>
