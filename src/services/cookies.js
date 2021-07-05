@@ -11,7 +11,3 @@ export function getCookies() {
     );
   return cookies;
 }
-
-export function getCookie(_key) {
-  return getCookies._key;
-}
