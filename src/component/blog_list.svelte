@@ -37,6 +37,10 @@
       <p>There are no blogs to display</p>
     {/each}
   </div>
+
+  <div class="add-blog">
+    <p>+</p>
+  </div>
 </section>
 
 <style>
@@ -60,5 +64,21 @@
   .no-blogs {
     grid-template-columns: 1fr;
     place-items: center;
+  }
+
+  .add-blog {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: rgb(131, 4, 148);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 30px;
   }
 </style>
