@@ -3,7 +3,6 @@
   import { getDateTimeString } from "../services/date";
   import Header from "../shared/header.svelte";
   import Button from "../shared/button.svelte";
-  import { get } from "svelte/store";
 
   export let id = null;
   export let title = "";
@@ -12,8 +11,12 @@
   export let created_date = new Date().toLocaleString();
   export let user_id;
   const isOwner = parseInt(getCookie("id")) === parseInt(user_id);
-  let contentChanged = false
-  console.log(isOwner);
+  let contentChanged = false;
+
+  const changeHandler = () => {
+    contentChanged = true;
+    console.log(contentChanged);
+  };
 </script>
 
 <section id="blog-details-section">
@@ -21,7 +24,11 @@
     <div slot="_default">
       <p>🔰</p>
       {#if isOwner}
-        <h2 contenteditable="true" bind:innerHTML={title} />
+        <h2
+          contenteditable="true"
+          bind:innerHTML={title}
+          on:input|once={changeHandler}
+        />
       {:else}
         <h2>{title}</h2>
       {/if}
@@ -42,7 +49,11 @@
     <p>Created: {getDateTimeString(created_date)}</p>
 
     {#if isOwner}
-      <p contenteditable="true" bind:innerHTML={body} />
+      <p
+        contenteditable="true"
+        bind:innerHTML={body}
+        on:input|once={changeHandler}
+      />
     {:else}
       <p>{body}</p>
     {/if}
