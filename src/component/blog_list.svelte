@@ -1,13 +1,18 @@
 <script>
   import { getCookie } from "../services/cookies";
   import { onMount } from "svelte";
+  import { get_blogs } from "../services/api_service";
   import Header from "../shared/header.svelte";
   import Button from "../shared/button.svelte";
   import BlogItem from "./blog_item.svelte";
 
   let blog_list = [];
 
-  onMount((_) => {});
+  onMount((_) => {
+    get_blogs().then((data) => {
+      blog_list = data;
+    });
+  });
 </script>
 
 <section id="blog-list-section">
@@ -47,7 +52,8 @@
   .blog-list {
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, 300px);
   }
 
   .no-blogs {
