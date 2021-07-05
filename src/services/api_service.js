@@ -25,3 +25,10 @@ export async function register_user(username, email, password) {
   const json = await result.json();
   return json;
 }
+
+export async function get_blogs() {
+  const result = await fetch(`${BASE_URL}/blog/`);
+
+  const json = await result.json();
+  return json;
+}
