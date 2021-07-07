@@ -32,3 +32,18 @@ export async function get_blogs() {
   const json = await result.json();
   return json;
 }
+
+export async function update_blog(blog_id, blog_object) {
+  blog = JSON.stringify(blog_object);
+
+  const result = await fetch(`${BASE_URL}/blog/update/${blog_id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(blog),
+  });
+
+  const json = await result.json();
+  return json;
+}

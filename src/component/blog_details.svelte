@@ -17,6 +17,25 @@
     contentChanged = true;
     console.log(contentChanged);
   };
+
+  let errors = true;
+  const onSaveClicked = () => {
+    let errors = false;
+
+    if (title === "" || title === "This can't be blank") {
+      errors = true;
+      title = "This can't be blank";
+    }
+
+    if (body === "" || body === "This can't be blank") {
+      errors = true;
+      body = "This can't be blank";
+    }
+
+    if (!errors) {
+      // make api request to update or save blog
+    }
+  };
 </script>
 
 <section id="blog-details-section">
