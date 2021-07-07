@@ -38,3 +38,7 @@ npm install
 npm run dev
 ```
 
+## Current Problems
++ Routing isn't perfect.
++ User authenication is not secure.
++ Some buttons may not work (Not implemented yet) 
