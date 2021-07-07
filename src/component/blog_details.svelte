@@ -1,6 +1,7 @@
 <script>
   import { getCookie } from "../services/cookies";
   import { getDateTimeString } from "../services/date";
+  import { update_blog } from "../services/api_service";
   import Header from "../shared/header.svelte";
   import Button from "../shared/button.svelte";
 
@@ -15,12 +16,11 @@
 
   const changeHandler = () => {
     contentChanged = true;
-    console.log(contentChanged);
   };
 
   let errors = true;
   const onSaveClicked = () => {
-    let errors = false;
+    errors = false;
 
     if (title === "" || title === "This can't be blank") {
       errors = true;
@@ -33,7 +33,14 @@
     }
 
     if (!errors) {
-      // make api request to update or save blog
+      if (id !== null) {
+        let blog_object = {
+          title,
+          body,
+          user_id,
+        };
+        update_blog(id, blog_object);
+      }
     }
   };
 </script>
@@ -75,7 +82,12 @@
       </div>
 
       {#if isOwner && contentChanged}
-        <Button flat={true} title="💾 Save Blog" secondary={true} />
+        <Button
+          clickHandler={onSaveClicked}
+          flat={true}
+          title="💾 Save Blog"
+          secondary={true}
+        />
       {/if}
     </div>
 
