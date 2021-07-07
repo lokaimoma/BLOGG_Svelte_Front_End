@@ -47,3 +47,18 @@ export async function update_blog(blog_id, blog_object) {
   const json = await result.json();
   return json;
 }
+
+export function insert_blog(blog_object) {
+  let blog = JSON.stringify(blog_object);
+
+  const result = await fetch(`${BASE_URL}/blog/insert`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: blog,
+  });
+
+  const json = await result.json();
+  return json;
+}
