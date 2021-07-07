@@ -16,13 +16,15 @@
     });
   });
   const handleClick = (id) => {
-    let blog = null;
-    blog_list.every((_blog) => {
-      if (_blog.id === id) {
-        blog = _blog;
-      }
-      return _blog.id !== id;
-    });
+    let blog = {};
+    if (id) {
+      blog_list.every((_blog) => {
+        if (_blog.id === id) {
+          blog = _blog;
+        }
+        return _blog.id !== id;
+      });
+    }
     dispatch("blogClicked", { blog });
   };
 </script>
@@ -50,7 +52,7 @@
     {/each}
   </div>
 
-  <div class="add-blog">
+  <div class="add-blog" on:click={handleClick}>
     <p>+</p>
   </div>
 </section>
