@@ -122,15 +122,6 @@
     height: 100vh;
   }
 
-  .main-header {
-    background-color: rgb(37, 20, 44);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.2rem 0.3rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.288);
-  }
-
   .form-container {
     display: grid;
     place-items: center;
