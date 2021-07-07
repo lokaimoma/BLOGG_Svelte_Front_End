@@ -9,14 +9,12 @@ created to give a feel of the API.
 ## Screenshots
 
 ---
-
-![Sign Up](screenshots/sign_up.png)
-![Login](screenshots/login.png)
-![Empty blog](screenshots/empty.png)
-![New blog](screenshots/new_blog.png)
-![Insert blog](screenshots/insert_blog.png)
-![Blog list](screenshots/blog_list.png)
-![Blog detail](screenshots/blog_detail.png)
+<img src="screenshots/sign_up.png" alt="Sign Up" width=400px> <img src="screenshots/login.png" alt="Login" width=400px>
+<img src="screenshots/empty.png" alt="Empty blog" width=400px>
+<img src="screenshots/new_blog.png" alt="New blog" width=400px>
+<img src="screenshots/insert_blog.png" alt="Insert blog" width=400px>
+<img src="screenshots/blog_list.png" alt="Blog list" width=400px>
+<img src="screenshots/blog_detail.png" alt="Blog detail" width=400px>
 
 ## Requirements
 
