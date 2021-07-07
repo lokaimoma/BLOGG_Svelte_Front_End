@@ -48,7 +48,7 @@ export async function update_blog(blog_id, blog_object) {
   return json;
 }
 
-export function insert_blog(blog_object) {
+export async function insert_blog(blog_object) {
   let blog = JSON.stringify(blog_object);
 
   const result = await fetch(`${BASE_URL}/blog/insert`, {
