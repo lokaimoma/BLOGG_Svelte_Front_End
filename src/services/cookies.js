@@ -16,3 +16,9 @@ export function getCookie(_key) {
   const cookies = getCookies();
   return cookies[_key];
 }
+
+export function delete_cookies() {
+  document.cookie = "email=";
+  document.cookie = "id=";
+  document.cookie = "username=";
+}
