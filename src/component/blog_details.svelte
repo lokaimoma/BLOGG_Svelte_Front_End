@@ -1,7 +1,7 @@
 <script>
   import { getCookie } from "../services/cookies";
   import { getDateTimeString } from "../services/date";
-  import { update_blog } from "../services/api_service";
+  import { update_blog, insert_blog } from "../services/api_service";
   import Header from "../shared/header.svelte";
   import Button from "../shared/button.svelte";
 
@@ -33,13 +33,15 @@
     }
 
     if (!errors) {
+      let blog_object = {
+        title,
+        body,
+        user_id,
+      };
       if (id !== null) {
-        let blog_object = {
-          title,
-          body,
-          user_id,
-        };
         update_blog(id, blog_object);
+      } else {
+        insert_blog(blog_object);
       }
     }
   };
