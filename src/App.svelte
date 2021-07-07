@@ -5,7 +5,6 @@
   import SignUp from "./component/sign_up.svelte";
   import BlogList from "./component/blog_list.svelte";
   import BlogDetails from "./component/blog_details.svelte";
-  import BlogItem from "./component/blog_item.svelte";
 
   const cookies = getCookies();
   if (cookies.id === "" || cookies.id == undefined) {
@@ -29,7 +28,7 @@
   {:else if $route === "blog_list"}
     <BlogList on:blogClicked={handleBlogClicked} />
   {:else if $route === "blog_details"}
-    <BlogDetails {...blog}/>
+    <BlogDetails {...blog} />
   {:else}
     <p>Loading</p>
   {/if}

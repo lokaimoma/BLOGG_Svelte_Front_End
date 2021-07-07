@@ -43,20 +43,23 @@
     </div>
   </Header>
 
-  <div class="body-content">
+  <div id="body-content" class="container">
     {#if id !== null}
-      <p>Last updated: {getDateTimeString(last_updated)}</p>
+      <p class="date-updated">
+        Last updated: {getDateTimeString(last_updated)}
+      </p>
     {/if}
-    <p>Created: {getDateTimeString(created_date)}</p>
+    <p class="date-created">Created: {getDateTimeString(created_date)}</p>
 
     {#if isOwner}
       <p
+        class="body"
         contenteditable="true"
         bind:innerHTML={body}
         on:input|once={changeHandler}
       />
     {:else}
-      <p>{body}</p>
+      <p class="body">{body}</p>
     {/if}
   </div>
 </section>
@@ -75,5 +78,29 @@
 
   .title {
     padding: 10px;
+  }
+
+  #body-content {
+    padding: 50px;
+  }
+
+  .date-updated,
+  .date-created {
+    font-size: 0.96rem;
+    color: rgb(218, 218, 218);
+  }
+
+  .body {
+    margin-top: 0.6rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.219);
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  .body:focus-visible {
+    outline: none;
+    border-color: rgb(231, 118, 235);
   }
 </style>
