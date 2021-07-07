@@ -1,5 +1,6 @@
 <script>
-  import { getCookie } from "../services/cookies";
+  import { route } from "../store/routing_store";
+  import { getCookie, delete_cookies } from "../services/cookies";
   import { getDateTimeString } from "../services/date";
   import { update_blog, insert_blog } from "../services/api_service";
   import Header from "../shared/header.svelte";
@@ -68,7 +69,15 @@
       <div class="info">
         <p>👤 {getCookie("username")}</p>
       </div>
-      <Button title="Log out" primary={true} flat={true} />
+      <Button
+        clickHandler={() => {
+          delete_cookies();
+          route.set("login");
+        }}
+        title="Log out"
+        primary={true}
+        flat={true}
+      />
     </div>
   </Header>
 
