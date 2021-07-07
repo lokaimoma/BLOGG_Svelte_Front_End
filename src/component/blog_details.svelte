@@ -5,11 +5,11 @@
   import Button from "../shared/button.svelte";
 
   export let id = null;
-  export let title = "Blog Title goes here";
-  export let body = "Blog content goes here";
+  export let title = "";
+  export let body = "";
   export let last_updated = new Date().toLocaleString();
   export let created_date = new Date().toLocaleString();
-  export let user_id = getCookie(id);
+  export let user_id = getCookie("id");
   const isOwner = parseInt(getCookie("id")) === parseInt(user_id);
   let contentChanged = false;
 
@@ -26,6 +26,7 @@
       {#if isOwner}
         <h2
           class="title"
+          placeholder="Blog Title goes here"
           contenteditable="true"
           bind:innerHTML={title}
           on:input|once={changeHandler}
@@ -44,18 +45,27 @@
   </Header>
 
   <div id="body-content" class="container">
-    {#if id !== null}
-      <p class="date-updated">
-        Last updated: {getDateTimeString(last_updated)}
-      </p>
-    {/if}
-    <p class="date-created">Created: {getDateTimeString(created_date)}</p>
+    <div class="info_and_actions">
+      <div class="dates">
+        {#if id !== null}
+          <p class="date-updated">
+            Last updated: {getDateTimeString(last_updated)}
+          </p>
+        {/if}
+        <p class="date-created">Created: {getDateTimeString(created_date)}</p>
+      </div>
+
+      {#if isOwner && contentChanged}
+        <Button flat={true} title="💾 Save Blog" secondary={true} />
+      {/if}
+    </div>
 
     {#if isOwner}
       <p
         class="body"
         contenteditable="true"
         bind:innerHTML={body}
+        placeholder="Blog content goes here"
         on:input|once={changeHandler}
       />
     {:else}
@@ -65,6 +75,13 @@
 </section>
 
 <style>
+  [contenteditable="true"]:empty:before {
+    content: attr(placeholder);
+    pointer-events: none;
+    display: block; /* For Firefox */
+    color: rgba(255, 255, 255, 0.445);
+  }
+
   .back-img {
     cursor: pointer;
     width: 30px;
